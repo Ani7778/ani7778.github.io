@@ -1,0 +1,220 @@
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+}
+
+.formContainer {
+  margin: auto;
+  padding-top: 100px;
+  width: 600px;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+  font-family: 'Mark Pro', sans-serif;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.line {
+  width: 600px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 30px 0
+}
+
+.formGroup {
+  margin: 25px 0 5px;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-family: 'Mark Pro', sans-serif;
+}
+
+.formInput {
+  width: 600px;
+  height: 60px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 0.25rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+
+  &:hover {
+    border-width: 2px;
+  }
+
+  &:focus {
+    border: 2px solid rgba(0, 0, 0, 1);
+    outline: none;
+  }
+}
+
+.invalidInput {
+  @extend .formInput;
+  width: 100%;
+  border: 1px solid rgba(255, 92, 31, 1);
+  text-overflow: ellipsis;
+  padding-right: 40px;
+
+  &:focus {
+    border: 2px solid rgba(255, 92, 31, 1);
+    outline: none;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.icon {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  width: 20px;
+  height: 20px;
+}
+
+.requiredIcon {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.inputMessage {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.3);
+  font-family: 'Mark Pro', sans-serif;
+}
+
+.paymentMethodsContainer {
+  margin-top: 30px;
+}
+
+.paymentBoxesContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.paymentBox {
+  width: 295px;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.selectedPaymentBox {
+  @extend .paymentBox;
+  border-color: rgba(0, 0, 0, 1);
+}
+
+.paymentLine {
+  @extend .line;
+  margin: 10px auto;
+  width: 252px;
+}
+
+.paymentOptions {
+  margin: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color:  rgba(0, 0, 0, 0.5);
+  font-family: 'Mark Pro', sans-serif;
+}
+
+.boxTitleContainer {
+  padding: 10px;
+  display: flex;
+  gap: 15px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.paymentTitle {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  font-family: 'Mark Pro', sans-serif;
+}
+
+.createTaskBtn {
+  width: 600px;
+  height: 60px;
+  background-color: #000;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  margin: 30px 0 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Mark Pro', sans-serif;
+
+  &:hover {
+    background-color: rgba(51, 51, 51, 1);
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .formContainer {
+    width: 400px;
+    padding-top: 10px;
+  }
+  .line {
+    width: 400px;
+  }
+  .paymentBox {
+    width: 400px;
+  }
+  .paymentLine {
+    width: 370px;
+  }
+  .paymentBoxesContainer {
+    display: block;
+    justify-content: space-between;
+  }
+  .createTaskBtn {
+    width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    width: 353px;
+    padding-top: 10px;
+  }
+  .line {
+    width: 353px;
+  }
+  .paymentBoxesContainer {
+    display: block;
+  }
+  .paymentBox {
+    width: 353px;
+    margin-bottom: 10px;
+  }
+  .paymentLine {
+    width: 313px;
+  }
+  .createTaskBtn {
+    width: 353px;
+  }
+}
+
