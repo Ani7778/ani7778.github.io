@@ -33,19 +33,18 @@ const telegramActivities: Option[] = [
 const BuyFollowers: React.FC = () => {
     const [socialNetwork, setSocialNetwork] = useState<string>('Telegram');
     const [activity, setActivity] = useState<string>('Followers');
-    const [subscribers, setSubscribers] = useState<number | ''>(0);
+    const [subscribers, setSubscribers] = useState<number>(0);
     const [error, setError] = useState<{ channel: boolean; subscriber: boolean }>({ channel: false, subscriber: false });
     const [channel, setChannel] = useState<string>('');
     const [paymentMethod, setPaymentMethod] = useState<string>('card');
 
     const handleSubscribersChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
-        const numberValue = value === '' ? '' : Number(value);
+        const value = Number(event.target.value);
 
-        if (numberValue > 1000 || numberValue < 1) {
+        if (value > 1000 || value < 1) {
             setError(prev => ({ ...prev, subscriber: true }));
         } else {
-            setSubscribers(numberValue);
+            setSubscribers(value);
             setError(prev => ({ ...prev, subscriber: false }));
         }
     };
