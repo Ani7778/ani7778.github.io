@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Select, { components } from 'react-select';
+import Select, { components, StylesConfig } from 'react-select';
 import styles from './CustomSelect.module.scss';
 import Image, { StaticImageData } from 'next/image';
+import { CSSObject } from '@emotion/react';
 
 interface OptionType {
     value: string;
@@ -12,21 +13,24 @@ interface OptionType {
 interface CustomSelectProps {
     options: OptionType[];
     setSelectedValue: (value: string) => void;
-    value: OptionType | null;
 }
 
-const customStyles = {
-    control: (base, state) => ({
+const customStyles: StylesConfig<OptionType, false> = {
+    control: (base: CSSObject) => ({
         ...base,
         borderRadius: 0,
-        border: state.isFocused ? 0 : 0,
-        boxShadow: state.isFocused ? 0 : 0,
+        border: 'none',
+        boxShadow: 'none',
         cursor: 'pointer',
+
         '&:hover': {
-            border: state.isFocused ? 0 : 0
+            border: 'none'
+        },
+        '&:focus': {
+            border: 'none'
         }
     }),
-    menu: base => ({
+    menu: (base: CSSObject) => ({
         ...base,
         borderRadius: 10,
         marginLeft: -7,
@@ -35,15 +39,15 @@ const customStyles = {
         marginTop: 10,
         backgroundColor: 'white'
     }),
-    menuList: base => ({
+    menuList: (base: CSSObject) => ({
         ...base,
         width: "600px",
         borderRadius: 10,
         border: 'none',
-        boxShadow: 30,
+        boxShadow: 'none',
         backgroundColor: 'white'
     }),
-    option: (base, state) => ({
+    option: (base: CSSObject, state: { isSelected: boolean }) => ({
         ...base,
         borderRadius: 10,
         height: "60px",
@@ -51,23 +55,23 @@ const customStyles = {
         marginLeft: 2,
         marginTop: 2,
         backgroundColor: state.isSelected ? 'rgba(0, 0, 0, 0.05)' : '#fff',
-        border: 0,
-        boxShadow: 0,
+        border: 'none',
+        boxShadow: 'none',
         cursor: 'pointer',
         color: '#000',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+
         '&:hover': {
-            border: state ? 0 : 0,
             backgroundColor: 'rgba(0, 0, 0, 0.05)',
         }
     }),
-    dropdownIndicator: base => ({
+    dropdownIndicator: (base: CSSObject) => ({
         ...base,
         color: "rgba(0, 0, 0, 0.5)"
     }),
-    indicatorSeparator: base => ({
+    indicatorSeparator: (base: CSSObject) => ({
         ...base,
         display: 'none',
     }),
